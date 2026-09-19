@@ -21,6 +21,7 @@
       "bmood25",
       "cheezypegasus",
       "csongfm",
+      "davidx2-gif",
       "graceguo16",
       "ipyoon",
       "justinwu80",
@@ -55,6 +56,7 @@
       "bmood",
       "cesong",
       "charlie3",
+      "davidx2",
       "ipae",
       "jzwu",
       "nchandy",
@@ -99,9 +101,15 @@
       "description": "Responsible for governance in Labrador.",
       "members": {
         "github_usernames": [
-          "Yuxiang-Huang"
+          "SamEthanMathew",
+          "Yuxiang-Huang",
+          "a-varigonda",
+          "hanabenko"
         ],
         "andrew_ids": [
+          "avarigon",
+          "hbenko",
+          "semathew",
           "yh4"
         ]
       },
