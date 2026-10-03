@@ -6,10 +6,11 @@ import asyncio
 from http import HTTPStatus
 from typing import TYPE_CHECKING
 
-from github import GithubException
+from github import GithubException, RateLimitExceededException
 
 from meta.clients.github_client import get_github_client
 from meta.logger import get_app_logger
+from meta.validator.src.github_utils import GitHubRateLimitError
 from meta.validator.src.reporter import ErrorCode
 
 if TYPE_CHECKING:
@@ -92,6 +93,8 @@ class TeamValidator:
             repo_name = f"{GITHUB_ORG_NAME}/{repo.name}"
             try:
                 github_client.get_repo(repo_name)
+            except RateLimitExceededException as e:
+                raise GitHubRateLimitError from e
             except GithubException as e:
                 if e.status == HTTPStatus.NOT_FOUND:
                     self.reporter.insert_error(

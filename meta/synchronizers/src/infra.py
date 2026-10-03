@@ -21,20 +21,6 @@ from .abstract import AbstractSynchronizer
 
 # Used for backwards compatibility
 LEGACY_DATA = {
-    "cmuresearch": {
-        "name": "CMU Research",
-        "description": "The CMU Research team.",
-        "members": {
-            "andrew_ids": ["bryung"],
-            "github_usernames": [],
-        },
-        "admins": {
-            "andrew_ids": ["bryung"],
-            "github_usernames": [],
-        },
-        "repos": [],
-        "create_oidc_clients": True,
-    },
     "cmuservice": {
         "name": "CMU Service",
         "description": "The CMU Service team.",
@@ -162,9 +148,7 @@ class InfraSynchronizer(AbstractSynchronizer):
             non_admins=self._get_andrew_ids(github_usernames.non_admins),
         )
 
-        all_team_leads = {
-            lead for team in self.teams.values() for lead in team.leads
-        }
+        all_team_leads = {lead for team in self.teams.values() for lead in team.leads}
 
         teams_data = {}
         for team_slug, team in self.teams.items():
